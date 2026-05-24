@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Vue Learning</title>
+</head>
+
+<body class="h-screen grid place-items-center">
+
+<div id="app"></div>
+
+<script type="module">
+    import Assignments from './components/Assignments.js';
+
+    Vue.createApp({
+        components: {
+            Assignments
+        },
+
+        template: `
+            <assignments></assignments>
+        `
+    }).mount('#app')
+</script>
+
+</body>
+</html>
