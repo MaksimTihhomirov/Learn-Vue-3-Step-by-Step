@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Button</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        .is-loading {
+            color: transparent;
+            position: relative;
+        }
+
+        .is-loading::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            left: 50%;
+            margin-top: -12px;
+            margin-left: -12px;
+            border-radius: 50%;
+            border: 3px solid #93c5fd;
+            border-top-color: white;
+            animation: spinner .6s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="h-screen grid place-items-center">
+
+<div id="app">
+    <button
+        class="bg-blue-600 text-white border rounded px-12 py-4 relative"
+        :class="{ 'is-loading': processing }"
+        :disabled="processing"
+    >
+        Submit
+    </button>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                processing: true
+            };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
