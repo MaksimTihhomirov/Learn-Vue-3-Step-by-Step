@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Button</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen grid place-items-center">
+
+<div id="app">
+
+    <button
+        class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2"
+        :disabled="processing"
+        @click="toggle"
+    >
+        {{ processing ? 'Disabled' : 'Submit' }}
+    </button>
+
+</div>
+
+<script>
+
+Vue.createApp({
+
+    data() {
+        return {
+            processing: false
+        };
+    },
+
+    methods: {
+        toggle() {
+            this.processing = !this.processing;
+        }
+    }
+
+}).mount('#app');
+
+</script>
+
+</body>
+</html>
